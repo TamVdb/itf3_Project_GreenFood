@@ -1,5 +1,5 @@
 # GreenFood
-Food box recipe page built in HTML, CSS and JavaScript
+First step of a meal box ordering project, showcasing a recipe page built with HTML, CSS, and JavaScript.
 
 
 It was a small project designed to showcase my technical and web design skills during a training module.
