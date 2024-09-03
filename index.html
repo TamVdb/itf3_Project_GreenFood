@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <link href="css/style.css" rel="stylesheet" />
+      <link href="css/reset.css" rel="stylesheet" />
+      <script defer src="js/script-html.js"></script>
+      <script defer src="js/script.js"></script>
+      <!-- Font Awesome -->
+      <link
+         rel="stylesheet"
+         href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+         crossorigin="anonymous"
+      />
+   </head>
+   <body>
+      <header>
+         <nav id="navbar">
+            <div id="logo" class="logo">
+               <a href="index.html"><img src="images/logo.png" alt="Logo GreenFood" /></a>
+            </div>
+            <div id="nav">
+               <ul>
+                  <li class="active"><a href="#">Menu</a></li>
+                  <li><a href="#">Comment ça marche ?</a></li>
+                  <li><a href="#">Valeurs</a></li>
+                  <li><a href="#">Producteurs</a></li>
+               </ul>
+            </div>
+            <div class="cta">
+               <div class="button"><a class="order">Je commande</a></div>
+            </div>
+            <div id="menu-toggle">
+               <div class="bar"></div>
+               <div class="bar"></div>
+               <div class="bar"></div>
+            </div>
+         </nav>
+      </header>
+
+      <main>
+         <div id="background" class="hidden"></div>
+
+         <!--  ==============================================
+               Progress Bar
+         ================================================= -->
+         <section id="progress_bar" class="multisteps">
+            <!-- MultiStep -->
+            <div class="multistep-container">
+               <div class="multistep-steps">
+                  <div class="multistep-step active" id="multistep-step_1">
+                     <div class="multistep_step-number">1</div>
+                     <div class="multistep_step-name">Je choisis mon menu</div>
+                  </div>
+                  <div class="multistep-step" id="multistep-step_2">
+                     <div class="multistep_step-number">2</div>
+                     <div class="multistep_step-name">Panier</div>
+                  </div>
+                  <div class="multistep-step" id="multistep-step_3">
+                     <div class="multistep_step-number">3</div>
+                     <div class="multistep_step-name">Livraison</div>
+                  </div>
+                  <div class="multistep-step" id="multistep-step_4">
+                     <div class="multistep_step-number">4</div>
+                     <div class="multistep_step-name">Validation</div>
+                  </div>
+                  <div class="multistep-progress-bar">
+                     <span class="indicator" id="progress"></span>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!--  ==============================================
+               Steps - SECTION Order - Step 1
+         ================================================= -->
+         <section id="order_step_1" class="stepContent active-step">
+            <div class="wrap">
+               <!--  ==============================================
+               SECTION Order - Step 1 - Tabs
+               ================================================= -->
+               <div class="tabs-container">
+                  <div id="tab_1" class="tablink active" data-tab-id="tab1">
+                     <div id="tab_1_title">Recettes</div>
+                  </div>
+                  <div id="tab_2" class="tablink" data-tab-id="tab2">
+                     <div id="tab_2_title">Plats</div>
+                  </div>
+                  <div id="tab_3" class="tablink" data-tab-id="tab3">
+                     <div id="tab_3_title">Gourmandises</div>
+                  </div>
+               </div>
+            </div>
+
+            <!--  ==============================================
+            Tab Content - Tab 1 - Recipes
+            ================================================= -->
+            <div id="tab1" class="tabcontent active">
+               <!-- Recettes -->
+               <div id="recipes"></div>
+
+               <!-- Modals Recettes -->
+               <div id="modal" class="hidden"></div>
+            </div>
+
+            <div id="tab2" class="tabcontent">
+               <p>Plats</p>
+            </div>
+
+            <div id="tab3" class="tabcontent">
+               <p>Gourmandises</p>
+            </div>
+         </section>
+
+         <!-- Section du panier -->
+         <section id="order_step_2" class="stepContent">
+            <div class="">Panier</div>
+         </section>
+
+         <!-- Section Livraison -->
+         <section id="order_step_3" class="stepContent">
+            <div class="">Livraison</div>
+         </section>
+
+         <!-- Section Validation -->
+         <section id="order_step_4" class="stepContent">
+            <div class="">Validation</div>
+         </section>
+      </main>
+
+      <footer>
+         <div class="row">
+            <div class="col">
+               <div class="title">Box repas</div>
+               <div class="infos">
+                  <ul>
+                     <li><a href="#">Recettes</a></li>
+                     <li><a href="#">Plats préparés</a></li>
+                     <li><a href="#">Gourmandises</a></li>
+                  </ul>
+                  <div class="button"><a class="order">Je commande</a></div>
+               </div>
+            </div>
+            <div class="col">
+               <div class="title">Services</div>
+               <div class="infos">
+                  <ul>
+                     <li><a href="#">Comment ça marche ?</a></li>
+                     <li><a href="#">Combien ça coûte ?</a></li>
+                     <li><a href="#">Offrir une box repas</a></li>
+                     <li><a href="#">Livraison</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col">
+               <div class="title">À propos</div>
+               <div class="infos">
+                  <ul>
+                     <li><a href="#">GreenFood</a></li>
+                     <li><a href="#">Nos fournisseurs</a></li>
+                     <li><a href="#">Nos Valeurs</a></li>
+                     <li><a href="#">Blog</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col">
+               <div class="title">Contact</div>
+               <div class="infos">
+                  <ul>
+                     <li><a href="#">Besoin d'aide ?</a></li>
+                     <li><a href="#">Contact</a></li>
+                     <li><a href="#">Presse</a></li>
+                     <li><a href="#">Jobs</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="socials">
+            <div class="social">
+               <a href="#" target="_blank">
+                  <img src="./images/social/facebook.png" alt="Facebook GreenFood" />
+               </a>
+            </div>
+            <div class="social">
+               <a href="#" target="_blank">
+                  <img src="./images/social/instagram.png" alt="Instagram GreenFood" />
+               </a>
+            </div>
+            <div class="social">
+               <a href="#" target="_blank">
+                  <img src="./images/social/twitter.png" alt="X GreenFood" />
+               </a>
+            </div>
+            <div class="social">
+               <a href="#" target="_blank">
+                  <img src="./images/social/tik-tok.png" alt="Tik-Tok GreenFood" />
+               </a>
+            </div>
+            <div class="social">
+               <a href="#" target="_blank">
+                  <img src="./images/social/linkedin.png" alt="LinkedIn GreenFood" />
+               </a>
+            </div>
+         </div>
+         <div class="logo">
+            <div class="logo-title">GreenFood</div>
+            <p class="baseline">Living the Green Life !</p>
+         </div>
+         <div class="legal">
+            <ul>
+               <li><a href="#">Mentions Légales</a></li>
+               <li><a href="#">CGV</a></li>
+               <li><a href="#">Confidentialité</a></li>
+               <li><a href="#">Cookies</a></li>
+            </ul>
+         </div>
+         <div class="copyrights">
+            <p>
+               © <span id="year"></span> - <a href="#">GreenFood</a> | Tous droits réservés | Ingredients
+               <a href="https://www.vecteezy.com/" target="_blank">by Vecteezy</a>
+               | Recipes by user14908974 from
+               <a href="https://www.freepik.com" target="_blank">Freepik.com</a>
+               • Made with <i class="fas fa-heart"></i> by
+               <a href="#" target="_blank">Tamara Vandebroeck</a>
+            </p>
+         </div>
+      </footer>
+   </body>
+</html>

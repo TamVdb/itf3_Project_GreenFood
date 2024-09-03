@@ -1,0 +1,954 @@
+/*=================================================================================================
+Global
+==================================================================================================*/
+:root {
+   --primary: #69dc9e;
+   --secondary: #122c34;
+   --montserrat: 'Montserrat';
+   --catamaran: 'Catamaran';
+   --josefin: 'Josefin';
+   --lobster: 'Lobster';
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+a {
+   text-decoration: none;
+}
+
+ul {
+   list-style-type: none;
+}
+
+/* Cool text */
+@font-face {
+   font-family: 'Lobster';
+   src: url('../fonts/Lobster/Lobster-Regular.ttf');
+}
+
+@font-face {
+   font-family: 'Josefin';
+   src: url('../fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf');
+}
+
+/* Titles */
+@font-face {
+   font-family: 'Montserrat';
+   src: url('../fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+
+/* Text */
+@font-face {
+   font-family: 'Catamaran';
+   src: url('../fonts/Catamaran/Catamaran-VariableFont_wght.ttf');
+}
+
+body {
+   font-size: 1rem;
+   font-weight: 400;
+   font-family: var(--catamaran);
+   line-height: 1.6;
+   width: 100vw;
+   height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+   font-family: var(--montserrat);
+   line-height: 1;
+}
+
+h1 {
+   font-size: 2.5rem;
+   font-weight: 800;
+}
+
+.hidden {
+   display: none !important;
+}
+
+main {
+   width: 100%;
+}
+
+.button {
+   display: flex;
+   border-radius: 5px;
+   background-color: var(--secondary);
+   padding: 0.4rem 0.8rem;
+   border: 1px solid var(--primary);
+   color: var(--primary);
+   font-family: var(--montserrat);
+   font-weight: 600;
+   font-size: 0.9rem;
+   width: fit-content;
+   cursor: pointer;
+   transition: all 300ms ease;
+}
+
+.button:hover {
+   background-color: var(--primary);
+   color: var(--secondary);
+   transition: all 300ms ease;
+}
+
+/*=================================================================================================
+Header
+==================================================================================================*/
+header {
+   width: 100%;
+   background-color: #122c34;
+
+   nav {
+      display: flex;
+      width: 90%;
+      max-width: 1280px;
+      align-items: center;
+      margin: auto;
+      flex-wrap: nowrap;
+
+      .logo {
+         display: flex;
+         align-items: center;
+         flex: 1;
+
+         img {
+            width: 60%;
+         }
+      }
+
+      #nav {
+         display: flex;
+         flex: 4;
+         order: 2;
+         padding-bottom: 0;
+         justify-content: center;
+
+         ul {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 15px;
+
+            li {
+               position: relative;
+
+               a {
+                  text-decoration: none;
+                  font-family: 'Montserrat';
+                  font-weight: 500;
+                  font-size: 1rem;
+                  color: white;
+                  &:hover,
+                  &:active {
+                     color: #aceec7;
+                  }
+               }
+
+               a.active {
+                  color: #aceec7;
+               }
+            }
+
+            li.active::after {
+               position: absolute;
+               content: '';
+               height: 3px;
+               width: 100%;
+               background-color: #69dc9e;
+               left: 0;
+               bottom: -5px;
+               border-top-left-radius: 3px;
+               border-top-right-radius: 3px;
+               animation: appear 0.3s linear;
+            }
+         }
+      }
+   }
+}
+
+@keyframes appear {
+   from {
+      width: 0;
+   }
+   to {
+      width: 100%;
+   }
+}
+
+.cta {
+   display: flex;
+   flex: 1;
+   order: 3;
+   justify-content: flex-end;
+}
+
+#menu-toggle {
+   display: none;
+   flex-direction: column;
+   cursor: pointer;
+   flex: 1;
+   justify-content: center;
+   align-items: flex-end;
+   order: 3;
+}
+
+#menu-toggle.open .bar:nth-child(1) {
+   transform: translateY(11px) rotate(45deg);
+}
+
+#menu-toggle.open .bar:nth-child(2) {
+   opacity: 0;
+}
+
+#menu-toggle.open .bar:nth-child(3) {
+   transform: translateY(-11px) rotate(-45deg);
+}
+
+#menu-toggle .bar {
+   width: 25px;
+   height: 3px;
+   border-radius: 5px;
+   background-color: white;
+   margin: 4px 0;
+   transition: transform 0.4s, opacity 0.4s;
+}
+
+@media only screen and (max-width: 934px) {
+   header {
+      nav {
+         flex-wrap: wrap;
+
+         .logo {
+            justify-content: flex-start;
+            order: 1;
+
+            img {
+               width: 70%;
+            }
+         }
+
+         #nav {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            order: 4;
+            flex: auto;
+            left: 0;
+            top: 0;
+            padding-bottom: 1rem;
+
+            ul {
+               flex-direction: column;
+
+               li {
+                  a {
+                     font-size: 0.95rem;
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   #nav.open {
+      display: flex;
+   }
+
+   #menu-toggle {
+      display: flex;
+   }
+
+   .cta {
+      flex: 2;
+      order: 2;
+      justify-content: center;
+      align-items: center;
+   }
+}
+
+@media only screen and (max-width: 480px) {
+   header {
+      nav {
+         .logo {
+            justify-content: flex-start;
+            order: 1;
+
+            img {
+               width: 100%;
+            }
+         }
+      }
+   }
+}
+
+/*=================================================================================================
+Progress Bar
+==================================================================================================*/
+section.multisteps {
+   width: 90%;
+   margin: auto;
+   display: flex;
+   justify-content: center;
+
+   .multistep-container {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      max-width: 1280px;
+      padding: 1.8rem 0;
+
+      .multistep-steps {
+         display: flex;
+         width: 100%;
+         align-items: center;
+         justify-content: space-between;
+         position: relative;
+
+         .multistep-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 25%;
+            z-index: 2;
+
+            .multistep_step-number {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               font-family: var(--lobster);
+               color: #ffffff;
+               background-color: #aceec7;
+               font-size: 30px;
+               width: 40px;
+               height: 40px;
+               border-radius: 50%;
+               transition: all 200ms ease;
+               transition-delay: 0ms;
+            }
+
+            .active .multistep_step-number {
+               background-color: var(--primary);
+               transition-delay: 100ms;
+               transition: all 200ms ease;
+            }
+
+            .multistep_step-name {
+               color: var(--primary);
+               font-family: var(--montserrat);
+               text-align: center;
+               font-size: 0.9em;
+               line-height: 1.8;
+            }
+
+            .active .multistep_step-name {
+               color: var(--secondary);
+               font-weight: 500;
+               font-family: var(--montserrat);
+               text-align: center;
+               font-size: 0.9em;
+               line-height: 1.8;
+            }
+         }
+
+         .multistep-progress-bar {
+            position: absolute;
+            width: 100%;
+            background-color: #aceec7;
+            z-index: 0;
+            top: calc(0% + 18px);
+            height: 2px;
+
+            .indicator {
+               position: absolute;
+               height: 100%;
+               width: 25%;
+               background: var(--primary);
+               transition: all 300ms ease;
+            }
+         }
+      }
+   }
+}
+
+/* Media Queries - Progress Bar
+------------------------------------ */
+@media only screen and (max-width: 768px) {
+   .multistep-step.active .multistep_step-name,
+   .multistep_step-name {
+      display: none;
+   }
+
+   .multistep_step-number {
+      font-size: 1.3rem;
+   }
+
+   .multistep-progress-bar {
+      top: calc(0% + 19px);
+      height: 2px;
+   }
+}
+
+/*=================================================================================================
+Steps - SECTION Order - Step 1
+==================================================================================================*/
+section.stepContent {
+   background-color: #f5f5f6;
+}
+
+/* Section Content - Show/Hide en fonction des Steps active */
+.stepContent {
+   display: none;
+   animation: animate 0.5s;
+   transition: all 200ms ease;
+   padding: 3rem 0;
+
+   .wrap {
+      display: flex;
+      justify-content: center;
+      padding: 2.5rem 0;
+      max-width: 1280px;
+      margin: auto;
+      width: 90%;
+   }
+}
+
+.active-step {
+   display: block;
+}
+
+/*=================================================================================================
+SECTION Order - Step 1 - Tabs
+==================================================================================================*/
+.tabs-container {
+   display: flex;
+   align-items: stretch;
+   background-color: #ffffff;
+   border-radius: 2rem;
+   box-shadow: 0 3px 4px 0 rgba(18, 44, 52, 0.2);
+
+   .tablink {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      padding: 0.8rem 1rem;
+      line-height: 1;
+      border-radius: 2rem;
+      min-width: 200px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 300ms ease;
+      font-family: var(--josefin);
+      &:hover {
+         background-color: var(--primary);
+      }
+   }
+
+   .active {
+      background-color: var(--primary);
+   }
+}
+
+/* Media Queries - SECTION Order - Step 1 - Tabs
+------------------------------------ */
+@media only screen and (max-width: 768px) {
+   .tabs-container .tablink {
+      min-width: 150px;
+   }
+}
+
+@media only screen and (max-width: 480px) {
+   .tabs-container .tablink {
+      min-width: 100px;
+   }
+}
+
+/*=================================================================================================
+Tab Content - Tab 1 - Recipes
+==================================================================================================*/
+.tabcontent {
+   padding: 2rem 1rem 2.5rem 1rem;
+   background-color: white;
+   border-radius: 1.5rem;
+   width: 90%;
+   max-width: 1280px;
+   margin: auto;
+}
+
+#recipes {
+   display: flex;
+   flex-wrap: wrap;
+   width: 100%;
+   justify-content: space-between;
+   gap: 0.7rem;
+
+   .recipe {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      border-radius: 1.1rem;
+      box-shadow: 0px 0px 5px 0px rgba(18, 44, 52, 0.1);
+
+      img.recipe_img {
+         max-width: 100%;
+         border-radius: 1.1rem;
+         border-top-right-radius: 1.1rem;
+         border-bottom-left-radius: 0px;
+         border-bottom-right-radius: 0px;
+         border-top-left-radius: 1.1rem;
+      }
+
+      .recipe_infos {
+         display: flex;
+         flex-wrap: nowrap;
+         flex-direction: column;
+         justify-content: space-between;
+         row-gap: 0.6rem;
+         padding: 0.8rem;
+         flex-grow: 1;
+
+         .tags {
+            display: flex;
+            background-color: #ffffff;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            .tag {
+               display: flex;
+               border-radius: 0.3rem;
+               padding: 0.3rem 0.5rem;
+               max-width: 70px;
+               font-size: 0.9rem;
+               font-weight: 600;
+               line-height: 1;
+            }
+         }
+
+         .description {
+            font-family: var(--montserrat);
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.3;
+         }
+      }
+   }
+
+   .recipe_block {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: all 200ms ease;
+      width: calc(25% - 0.7rem);
+   }
+}
+
+.veggie {
+   background-color: #d4f7e0;
+   color: #1bae68;
+}
+
+.express {
+   background-color: #fef1c7;
+   color: #f79623;
+}
+
+.gluten {
+   background-color: #f3e8e1;
+   color: #b97057;
+}
+
+.lactose {
+   background-color: #e3ecf7;
+   color: #6393ce;
+}
+
+.healthy {
+   background-color: #ecebfc;
+   color: #856ee4;
+}
+
+@media only screen and (max-width: 1024px) {
+   #recipes .recipe_block {
+      width: calc(50% - 0.7rem);
+   }
+}
+
+/*=================================================================================================
+Step 1 - Overlay Recipe Description
+==================================================================================================*/
+#background {
+   background-color: rgba(18, 44, 52, 0.5);
+   z-index: 50;
+   width: 100vw;
+   height: 100vh;
+   position: fixed;
+   top: 0;
+   left: 0;
+}
+
+#modal::-webkit-scrollbar {
+   display: none;
+}
+
+#modal {
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+   border-radius: 1.5rem;
+   padding: 2rem;
+   position: fixed;
+   width: 90vw;
+   margin: auto;
+   height: auto;
+   max-width: 1000px;
+   box-shadow: 0 8px 32px rgba(18, 44, 52, 0.1);
+   z-index: 100;
+   inset: 50% auto auto 50%;
+   transform: translate(-50%, -50%);
+
+   .close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: flex-end;
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      background-color: whitesmoke;
+      padding: 0.5rem;
+      font-weight: bold;
+      font-family: var(--montserrat);
+      cursor: pointer;
+      user-select: none;
+   }
+
+   .modal-container {
+      display: flex;
+
+      .modal-img {
+         display: flex;
+         flex-direction: column;
+         width: 50%;
+
+         img {
+            border-radius: 1.1rem;
+         }
+
+         .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            transform: translateY(-2rem); /* Keep the space */
+            padding-left: 1rem;
+
+            .tag {
+               display: flex;
+               border-radius: 0.3rem;
+               padding: 0.3rem 0.5rem;
+               max-width: 120px;
+               font-size: 1rem;
+               font-weight: 600;
+               line-height: 1;
+            }
+         }
+      }
+
+      .modal-recipe-container {
+         display: flex;
+         flex-direction: column;
+         width: 50%;
+         padding: 0 1rem;
+         gap: 1rem;
+
+         .modal-recipe-title {
+            font-family: var(--montserrat);
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 1.3;
+         }
+
+         .ingredients {
+            display: flex;
+            flex-wrap: wrap;
+            row-gap: 0.5rem; /* Espace entre les rangées */
+
+            .ingredient {
+               display: flex;
+               align-items: center;
+               width: 50%;
+
+               .ingredient-img {
+                  display: flex;
+                  height: 70px;
+                  flex-basis: 70px;
+                  align-items: center;
+
+                  img {
+                     width: 90%;
+                     border-radius: 50%;
+                  }
+               }
+
+               .ingredient-name {
+                  font-size: 1rem;
+                  line-height: 1.2;
+                  font-weight: 500;
+               }
+            }
+         }
+      }
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   #modal {
+      padding: 1rem;
+      height: 100%;
+      overflow-y: auto;
+
+      .modal-container {
+         flex-direction: column;
+
+         .modal-img,
+         .modal-recipe-container {
+            width: 100%;
+         }
+
+         .modal-img img {
+            border-top-left-radius: 1.1rem;
+            border-bottom-right-radius: 1.1rem;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 0;
+         }
+
+         .modal-recipe-container .ingredients {
+            .ingredient {
+               width: 33.33%;
+            }
+
+            .ingredient-name {
+               font-size: 0.9rem;
+            }
+         }
+      }
+   }
+}
+
+@media only screen and (max-width: 480px) {
+   #modal {
+      .modal-container {
+         .modal-recipe-container .ingredients {
+            .ingredient {
+               width: 50%;
+            }
+         }
+      }
+   }
+}
+
+/*=================================================================================================
+Footer
+==================================================================================================*/
+footer {
+   width: 100%;
+   background-color: var(--secondary);
+   padding: 2rem 0 0 0;
+
+   .row {
+      display: flex;
+      width: 90%;
+      max-width: 1280px;
+      margin: auto;
+      justify-content: center;
+      padding: 1rem 0 3rem 0;
+      gap: 25px;
+
+      .col {
+         display: flex;
+         flex-direction: column;
+         width: 100%;
+
+         .title {
+            color: #d4f7e0;
+            font-size: 1.3rem;
+            font-family: var(--josefin);
+            font-weight: 500;
+            padding-bottom: 0.5rem;
+         }
+
+         .infos ul li a {
+            color: #dcdcdc;
+            font-size: 1rem;
+            font-weight: 300;
+            transition: all 200ms ease;
+            &:hover {
+               color: white;
+               transition: all 200ms ease;
+            }
+         }
+
+         .button {
+            margin-top: 0.5rem;
+         }
+      }
+   }
+
+   .socials {
+      display: flex;
+      width: 90%;
+      margin: auto;
+      justify-content: center;
+      gap: 30px;
+      position: relative;
+
+      &::before {
+         border-top: 1px solid #edfcf3;
+         content: '';
+         position: absolute;
+         top: 50%;
+         width: 33%;
+         left: 0;
+      }
+
+      &::after {
+         border-top: 1px solid #edfcf3;
+         content: '';
+         position: absolute;
+         top: 50%;
+         width: 33%;
+         right: 0;
+      }
+
+      .social {
+         display: flex;
+         padding: 0.75rem 0;
+      }
+   }
+
+   .logo {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+      line-height: 1;
+
+      .logo-title {
+         font-family: var(--josefin);
+         color: var(--primary);
+         font-weight: 700;
+         font-size: 2rem;
+      }
+
+      .baseline {
+         color: #edfcf3;
+      }
+   }
+
+   .legal {
+      display: flex;
+      width: 90%;
+      margin: auto;
+      justify-content: center;
+      margin-top: 1.8rem;
+
+      ul {
+         display: flex;
+         justify-content: center;
+         flex-wrap: wrap;
+
+         > li:not(:last-child) a::after {
+            color: var(--primary);
+            content: '|';
+            display: inline-flex;
+            font-size: 1rem;
+            position: relative;
+            right: -1rem;
+            font-weight: 300;
+         }
+
+         li a {
+            padding: 0.3rem 1rem;
+            color: white;
+            text-decoration: underline;
+            font-weight: 500;
+         }
+      }
+   }
+
+   .copyrights {
+      display: flex;
+      width: 90%;
+      margin: auto;
+      justify-content: center;
+      position: relative;
+      border-top: 1px dotted #254954;
+      margin-top: 1.5rem;
+
+      p {
+         color: #989898;
+         padding: 0.5rem 0;
+
+         a {
+            color: var(--primary);
+         }
+      }
+
+      i {
+         color: #aceec7;
+      }
+   }
+}
+
+@media only screen and (max-width: 1024px) {
+   footer .row {
+      text-align: center;
+   }
+   footer .row .col .infos {
+      margin: auto;
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   footer .row {
+      flex-direction: column;
+      align-items: center;
+   }
+   footer .socials {
+      gap: 20px;
+   }
+   footer .socials::before,
+   footer .socials::after {
+      width: 20%;
+   }
+}
+
+@media only screen and (max-width: 480px) {
+   footer .row .col .infos {
+      margin: auto;
+   }
+   footer .socials {
+      gap: 15px;
+   }
+}
