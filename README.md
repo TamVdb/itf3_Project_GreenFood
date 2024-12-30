@@ -1,11 +1,12 @@
-# GreenFood
+# GreenFood 👩‍🍳🌱
 First step of a meal box ordering project, showcasing a recipe page built with HTML, CSS, and JavaScript.
 
 
 It was a small project designed to showcase my technical and web design skills during a training module.
 
 
-## Project timeline and technologies used
+&nbsp;
+## 🛠️ Project timeline and technologies used
 
 Build a small project in 1 week to continue the training and to showcase the following:
 * My technical skills in JS
@@ -22,7 +23,8 @@ Build a small project in 1 week to continue the training and to showcase the fol
 * VS Code
 
 
-## Visuals
+&nbsp;
+## 👀 Visuals
 
 ![Imgur](https://tinyurl.com/mr2wwe5e)
 ![Imgur](https://tinyurl.com/mryp9r8s)
